@@ -1,0 +1,20 @@
+server:
+  port: 8081
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: catalog
+          uri: http://localhost:8080
+          predicates:
+            - Path=/catalog/**
+          filters:
+            - StripPrefix=1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
