@@ -1,1 +1,6 @@
 target/
+.mvn/
+.idea/
+.junie/
+mvnw
+mvnw.cmd
