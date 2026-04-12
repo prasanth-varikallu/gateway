@@ -6,9 +6,21 @@ spring:
     gateway:
       routes:
         - id: catalog
-          uri: http://localhost:8080
+          uri: http://catalog:8080
           predicates:
             - Path=/catalog/**
+          filters:
+            - StripPrefix=1
+        - id: order
+          uri: http://order:8080
+          predicates:
+            - Path=/order/**
+          filters:
+            - StripPrefix=1
+        - id: inventory
+          uri: http://inventory:8080
+          predicates:
+            - Path=/inventory/**
           filters:
             - StripPrefix=1
 
